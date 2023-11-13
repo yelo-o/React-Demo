@@ -58,11 +58,11 @@
 			<scope>provided</scope>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>com.github.eirslett</groupId>-->
-<!--			<artifactId>frontend-maven-plugin</artifactId>-->
-<!--			<version>1.14.2</version>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>com.github.eirslett</groupId>
+			<artifactId>frontend-maven-plugin</artifactId>
+			<version>1.14.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -100,6 +100,41 @@
 						<!-- Optional configuration which provides for running any npm command -->
 						<configuration>
 							<arguments>ci</arguments>
+						</configuration>
+					</execution>
+
+<!--					<execution>-->
+<!--						<id>javascript tests</id>-->
+<!--						<goals>-->
+<!--							<goal>npm</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<arguments>run test</arguments>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--					<execution>-->
+<!--						<id>npm run build</id>-->
+<!--						<goals>-->
+<!--							<goal>npm</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<arguments>run build</arguments>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+
+					<execution>
+						<id>webpack build</id>
+						<goals>
+							<goal>webpack</goal>
+						</goals>
+
+						<!-- optional: the default phase is "generate-resources" -->
+						<phase>generate-resources</phase>
+
+						<configuration>
+							<!-- optional: if not specified, it will run webpack's default
+                            build (and you can remove this whole <configuration> section.) -->
+							<arguments>-p</arguments>
 						</configuration>
 					</execution>
 				</executions>
